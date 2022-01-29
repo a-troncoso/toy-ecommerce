@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import * as types from "./types";
 
+import productReducer from "./product/productReducer";
+
 const counterReducer = (state = 0, { type }) => {
   switch (type) {
     case types.INCREMENT:
@@ -37,6 +39,7 @@ const timerReducer = (state = initialTimerState, { type, payload }) => {
 const reducers = {
   counter: counterReducer,
   timer: timerReducer,
+  product: productReducer,
 };
 
 export default combineReducers(reducers);

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 export default function Main() {
-  const count = useSelector((state) => state.counter);
+  const product = useSelector((state) => state.product);
+  console.log(product);
 
   return (
     <main>
