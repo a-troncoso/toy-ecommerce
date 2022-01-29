@@ -4,6 +4,20 @@ export default function GlobalStyles() {
       * {
         box-sizing: border-box;
       }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
     `}</style>
   );
 }
