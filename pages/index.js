@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import Layout from "components/layout";
+import Main from "containers/main";
 import GlobalStyles from "styles/globalStyles";
 
 import "normalize.css/normalize.css";
@@ -13,11 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Link href="/productDetail">
-          <a>Go To product detail</a>
-        </Link>
-      </main>
+      <Main />
 
       <GlobalStyles />
     </Layout>
