@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Layout from "components/layout";
-import Main from "containers/main";
+import Layout from "@/components/layout";
+import Main from "@/containers/main";
 
 export default function Home() {
   return (

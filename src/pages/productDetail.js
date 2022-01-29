@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/productDetail.module.scss";
+import styles from "@/styles/productDetail.module.scss";
 
 export default function ProductDetail() {
   return (
