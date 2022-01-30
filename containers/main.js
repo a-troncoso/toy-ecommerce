@@ -4,6 +4,7 @@ import MainHero from "@/components/mainHero/MainHero";
 import ProductCategory from "@/components/productCategory/ProductCategory";
 import FeaturedProducts from "@/components/featuredProducts/FeaturedProducts";
 import ProductList from "@/components/productList/ProductList";
+import CartPanel from "@/components/cartPanel/CartPanel";
 
 import styles from "./main.module.scss";
 
@@ -12,16 +13,21 @@ export default function Main() {
   console.log(product);
 
   return (
-    <main>
-      <MainHeader />
-      <MainHero />
-      <div className={styles.productCategorySection}>
-        <ProductCategory />
-      </div>
-      <FeaturedProducts />
-      <div className={styles.productListSection}>
-        <ProductList />
-      </div>
-    </main>
+    <div>
+      <main>
+        <MainHeader />
+        <MainHero />
+        <div className={styles.productCategorySection}>
+          <ProductCategory />
+        </div>
+        <FeaturedProducts />
+        <div className={styles.productListSection}>
+          <ProductList />
+        </div>
+      </main>
+      <aside>
+        <CartPanel />
+      </aside>
+    </div>
   );
 }

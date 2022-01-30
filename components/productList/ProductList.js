@@ -32,19 +32,21 @@ const products = [
   },
 ];
 
+function ProductListControl({ imageIcon, onClick }) {
+  return (
+    <button className={styles.productListControl} onClick={onClick}>
+      <Image src={imageIcon} width={30} height={30} alt="control" />
+    </button>
+  );
+}
+
 export default function ProductList() {
   return (
     <div className={styles.productList}>
       <div className={styles.productListHeader}>
-        <button className={styles.productListControl}>
-          <Image src={searchIcon} width={30} height={30} />
-        </button>
-        <button className={styles.productListControl}>
-          <Image src={backIcon} width={30} height={30} />
-        </button>
-        <button className={styles.productListControl}>
-          <Image src={nextIcon} width={30} height={30} />
-        </button>
+        <ProductListControl imageIcon={searchIcon} />
+        <ProductListControl imageIcon={backIcon} />
+        <ProductListControl imageIcon={nextIcon} />
       </div>
       <div className={styles.productListWrapper}>
         {products.map((p) => (
