@@ -1,6 +1,4 @@
 .product {
-  // border: solid 1px black;
-
   .productImageWrapper {
     padding: 24px;
     background-color: #fff;
@@ -13,13 +11,8 @@
     padding: 16px 0;
 
     .productName {
-      font-size: 24px;
       font-weight: bold;
       margin-bottom: 8px;
-    }
-
-    .productPrice {
-      font-size: 20px;
     }
   }
 }
