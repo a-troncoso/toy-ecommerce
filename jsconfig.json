@@ -6,7 +6,8 @@
       "@/store/*": ["store/*"],
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
-      "@/containers/*": ["containers/*"]
+      "@/containers/*": ["containers/*"],
+      "@/utils/*": ["utils/*"]
     }
   }
 }

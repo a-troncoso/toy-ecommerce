@@ -3,7 +3,6 @@
     display: flex;
     li {
       position: relative;
-      padding: 4px 16px;
       &:not(:last-child) {
         margin-right: 8px;
       }
@@ -23,6 +22,9 @@
       }
       &:hover:after {
         opacity: 1;
+      }
+      a {
+        padding: 4px 16px;
       }
     }
   }

@@ -31,7 +31,7 @@ const products = [
 export default function FeaturedProducts() {
   return (
     <div className={styles.featuredProducts}>
-      <h2>Productos Destacados</h2>
+      <h2 className={styles.featuredProductsTitle}>Productos Destacados</h2>
       <div className={styles.productList}>
         {products.map((p) => (
           <Product
@@ -40,6 +40,7 @@ export default function FeaturedProducts() {
             name={p.name}
             price={p.price}
             image={p.image}
+            className={styles.product}
           />
         ))}
       </div>

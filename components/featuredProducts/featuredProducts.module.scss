@@ -2,8 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 48px 48px;
+  background-color: #f9f9f9;
+
+  .featuredProductsTitle {
+    margin: 40px 0;
+    font-size: 40px;
+  }
 
   .productList {
     display: flex;
+  }
+
+  .product:not(:last-child) {
+    margin-right: 32px;
   }
 }
