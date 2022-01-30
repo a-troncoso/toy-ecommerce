@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
 import Product from "@/components/product/Product";
 import searchIcon from "@/public/search.png";
 import nextIcon from "@/public/next.png";
@@ -63,3 +64,8 @@ export default function ProductList() {
     </div>
   );
 }
+
+ProductListControl.propTypes = {
+  imageIcon: PropTypes.node,
+  onClick: PropTypes.func,
+};

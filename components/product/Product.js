@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import Image from "next/image";
 import { useState } from "react";
@@ -48,7 +49,7 @@ export default function Product({
   );
 }
 
-function CartOptions({}) {
+function CartOptions() {
   const [alreadyAddedToCart, setAlreadyAddedToCart] = useState(false);
 
   return (
@@ -84,3 +85,11 @@ function CartOptions({}) {
     </div>
   );
 }
+
+Product.propTypes = {
+  className: PropTypes.node,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.oneOf(PropTypes.string, PropTypes.number),
+  image: PropTypes.node,
+};
