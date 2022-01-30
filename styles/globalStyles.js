@@ -6,8 +6,8 @@ export default function GlobalStyles() {
       }
 
       body {
-        font-family: "Ubuntu", "Dongle", Helvetica, sans-serif;
-        letter-spacing: 0.125em;
+        font-family: "Short Stack", "Ubuntu", "Dongle", Helvetica, sans-serif;
+        color: #333;
       }
 
       ul {
@@ -22,6 +22,16 @@ export default function GlobalStyles() {
       a {
         color: #000;
         text-decoration: none;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
       }
     `}</style>
   );

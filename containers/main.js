@@ -15,13 +15,13 @@ export default function Main() {
     <main>
       <MainHeader />
       <MainHero />
-      <div className={styles.productCategoryWrapper}>
+      <div className={styles.productCategorySection}>
         <ProductCategory />
       </div>
-      <div className={styles.featuredProductsWrapper}>
-        <FeaturedProducts />
+      <FeaturedProducts />
+      <div className={styles.productListSection}>
+        <ProductList />
       </div>
-      <ProductList />
     </main>
   );
 }

@@ -1,5 +1,12 @@
-.productCategoryWrapper {
+.productCategorySection {
   position: relative;
   display: flex;
+  justify-content: center;
+}
+.productListSection {
+  display: grid;
+  grid-template-columns: minmax(max-content, 1024px);
+  width: 100%;
+  padding: 48px;
   justify-content: center;
 }
