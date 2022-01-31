@@ -9,21 +9,20 @@ import CartPanel from "@/components/cartPanel/CartPanel";
 import styles from "./main.module.scss";
 
 export default function Main() {
-  const product = useSelector((state) => state.product);
-  console.log(product);
+  // const product = useSelector((state) => state.product);
 
   return (
     <div>
       <main>
         <MainHeader />
         <MainHero />
-        <div className={styles.productCategorySection}>
+        <section className={styles.productCategorySection}>
           <ProductCategory />
-        </div>
+        </section>
         <FeaturedProducts />
-        <div className={styles.productListSection}>
+        <section className={styles.productListSection}>
           <ProductList />
-        </div>
+        </section>
       </main>
       <aside>
         <CartPanel />

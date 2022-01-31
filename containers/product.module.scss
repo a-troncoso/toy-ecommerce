@@ -1,0 +1,12 @@
+@import "../styles/colors.scss";
+
+.main {
+  background-color: $light-gray-100;
+  .productDetailSection {
+    display: grid;
+    grid-template-columns: minmax(max-content, 1024px);
+    width: 100%;
+    padding: 48px;
+    justify-content: center;
+  }
+}

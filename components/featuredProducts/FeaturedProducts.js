@@ -36,6 +36,7 @@ export default function FeaturedProducts() {
         {products.map((p) => (
           <Product
             key={p.id}
+            id={p.id}
             type="featured"
             name={p.name}
             price={p.price}

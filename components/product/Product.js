@@ -1,13 +1,17 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { toCurrencyFormat } from "@/utils/currency";
 import { BsCartPlus } from "react-icons/bs";
+import Counter from "@/components/counter/Counter";
 
 import styles from "./product.module.scss";
 
+// TODO: Refactor this component to use a generic component
 export default function Product({
+  id,
   className,
   type = "default",
   name,
@@ -16,55 +20,55 @@ export default function Product({
 }) {
   if (type === "featured")
     return (
-      <div className={classNames(styles.product, styles.featured, className)}>
-        <div>
-          <div className={styles.productImageWrapper}>
-            <Image src={image} width={150} height={150} alt="product image" />
+      <Link href={`/productDetail?id=${id}`} passHref>
+        <div className={classNames(styles.product, styles.featured, className)}>
+          <div>
+            <div className={styles.productImageWrapper}>
+              <Image src={image} width={150} height={150} alt="product image" />
+            </div>
+            <div className={styles.productInfo}>
+              <span className={styles.productName}>{name}</span>
+              <span className={styles.productPrice}>
+                {toCurrencyFormat(price)}
+              </span>
+            </div>
           </div>
-          <div className={styles.productInfo}>
-            <span className={styles.productName}>{name}</span>
-            <span className={styles.productPrice}>
-              {toCurrencyFormat(price)}
-            </span>
-          </div>
+          <CartOptions />
         </div>
-        <CartOptions />
-      </div>
+      </Link>
     );
 
   if (type === "cart")
     return (
-      <div
-        className={classNames(styles.product, styles.cart, className)}
-        onClick={() => console.log("click on product")}
-      >
-        <div className={styles.productImageWrapper}>
-          <Image src={image} width={50} height={50} alt="product image" />
+      <Link href={`/productDetail?id=${id}`} passHref>
+        <div className={classNames(styles.product, styles.cart, className)}>
+          <div className={styles.productImageWrapper}>
+            <Image src={image} width={50} height={50} alt="product image" />
+          </div>
+          <div className={styles.productInfo}>
+            <span className={styles.productName}>{name}</span>
+            <span className={styles.productPrice}>
+              <span className={styles.productQuantity}>3 x </span>
+              {toCurrencyFormat(price)}
+            </span>
+          </div>
         </div>
-        <div className={styles.productInfo}>
-          <span className={styles.productName}>{name}</span>
-          <span className={styles.productPrice}>
-            <span className={styles.productQuantity}>3 x </span>
-            {toCurrencyFormat(price)}
-          </span>
-        </div>
-      </div>
+      </Link>
     );
 
   return (
-    <div
-      className={classNames(styles.product, className)}
-      onClick={() => console.log("click on product")}
-    >
-      <div className={styles.productImageWrapper}>
-        <Image src={image} width={100} height={100} alt="product image" />
+    <Link href={`/productDetail?id=${id}`} passHref>
+      <div className={classNames(styles.product, className)}>
+        <div className={styles.productImageWrapper}>
+          <Image src={image} width={100} height={100} alt="product image" />
+        </div>
+        <div className={styles.productInfo}>
+          <span className={styles.productName}>{name}</span>
+          <span className={styles.productPrice}>{toCurrencyFormat(price)}</span>
+        </div>
+        <CartOptions />
       </div>
-      <div className={styles.productInfo}>
-        <span className={styles.productName}>{name}</span>
-        <span className={styles.productPrice}>{toCurrencyFormat(price)}</span>
-      </div>
-      <CartOptions />
-    </div>
+    </Link>
   );
 }
 
@@ -84,29 +88,14 @@ function CartOptions() {
           <BsCartPlus size={28} color="#fff" />
         </button>
       )}
-      {alreadyAddedToCart && (
-        <div className={styles.productInCartCounter}>
-          <button
-            className={styles.counterControl}
-            onClick={(e) => e.stopPropagation()}
-          >
-            -
-          </button>
-          <input type="number" />
-          <button
-            className={styles.counterControl}
-            onClick={(e) => e.stopPropagation()}
-          >
-            +
-          </button>
-        </div>
-      )}
+      {alreadyAddedToCart && <Counter />}
     </div>
   );
 }
 
 Product.propTypes = {
   className: PropTypes.node,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   type: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

@@ -38,10 +38,10 @@ export default function CartPanel() {
         <div className={cartDetailClassName}>
           <div className={styles.productList}>
             <div className={styles.productWrapper}>
-              <Product name="product 1" price="300" type="cart" />
+              <Product id="1" name="product 1" price="300" type="cart" />
             </div>
             <div className={styles.productWrapper}>
-              <Product name="product 2" price="300" type="cart" />
+              <Product id="1" name="product 2" price="300" type="cart" />
             </div>
           </div>
           <div className={styles.cartDetailOptions}>

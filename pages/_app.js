@@ -6,7 +6,6 @@ import "normalize.css/normalize.css";
 
 export default function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
-  console.log({ store });
 
   return (
     <Provider store={store}>

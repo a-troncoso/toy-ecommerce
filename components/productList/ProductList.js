@@ -53,6 +53,7 @@ export default function ProductList() {
         {products.map((p) => (
           <div key={p.id}>
             <Product
+              id={p.id}
               name={p.name}
               price={p.price}
               image={p.image}

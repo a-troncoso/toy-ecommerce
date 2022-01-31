@@ -1,11 +1,11 @@
 import { Html, Head, NextScript, Main } from "next/document";
 import Layout from "@/components/layout/Layout";
-// import Main from "@/containers/Main";
 
 export default function Document() {
   return (
     <Html>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
