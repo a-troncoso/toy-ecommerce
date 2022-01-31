@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Product from "@/containers/Product";
+import ProductContainer from "@/containers/ProductContainer";
 
 export default function Home() {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>Amiibo | Product Detail</title>
       </Head>
-      <Product id={id} />
+      <ProductContainer id={id} />
     </>
   );
 }

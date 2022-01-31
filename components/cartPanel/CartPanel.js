@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import classNames from "classnames/bind";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Product from "@/components/product/Product";
@@ -45,7 +46,9 @@ export default function CartPanel() {
             </div>
           </div>
           <div className={styles.cartDetailOptions}>
-            <button className={styles.cartDetailOption}>Comprar</button>
+            <Link href="/checkout" passHref>
+              <button className={styles.cartDetailOption}>Comprar</button>
+            </Link>
           </div>
         </div>
       </OutsideAlerter>

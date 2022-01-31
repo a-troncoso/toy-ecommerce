@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Main from "@/containers/Main";
+import MainContainer from "@/containers/MainContainer";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Amiibo | E-commerce</title>
       </Head>
-      <Main />
+      <MainContainer />
     </>
   );
 }

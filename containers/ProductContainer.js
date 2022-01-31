@@ -5,7 +5,7 @@ import ProductDetail from "@/components/productDetail/ProductDetail";
 
 import styles from "@/containers/product.module.scss";
 
-export default function Product({ id }) {
+export default function ProductContainer({ id }) {
   return (
     <div>
       <main className={styles.main}>

@@ -8,7 +8,7 @@ import CartPanel from "@/components/cartPanel/CartPanel";
 
 import styles from "./main.module.scss";
 
-export default function Main() {
+export default function MainContainer() {
   // const product = useSelector((state) => state.product);
 
   return (
