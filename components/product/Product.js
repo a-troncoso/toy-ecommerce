@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import { useState } from "react";
 import { toCurrencyFormat } from "@/utils/currency";
-import addToCartIcon from "@/public/add-to-cart.png";
+import { BsCartPlus } from "react-icons/bs";
 
 import styles from "./product.module.scss";
 
@@ -29,6 +29,25 @@ export default function Product({
           </div>
         </div>
         <CartOptions />
+      </div>
+    );
+
+  if (type === "cart")
+    return (
+      <div
+        className={classNames(styles.product, styles.cart, className)}
+        onClick={() => console.log("click on product")}
+      >
+        <div className={styles.productImageWrapper}>
+          <Image src={image} width={50} height={50} alt="product image" />
+        </div>
+        <div className={styles.productInfo}>
+          <span className={styles.productName}>{name}</span>
+          <span className={styles.productPrice}>
+            <span className={styles.productQuantity}>3 x </span>
+            {toCurrencyFormat(price)}
+          </span>
+        </div>
       </div>
     );
 
@@ -62,7 +81,7 @@ function CartOptions() {
             setAlreadyAddedToCart(true);
           }}
         >
-          <Image src={addToCartIcon} alt="add to cart" width={36} height={36} />
+          <BsCartPlus size={28} color="#fff" />
         </button>
       )}
       {alreadyAddedToCart && (
@@ -90,6 +109,6 @@ Product.propTypes = {
   className: PropTypes.node,
   type: PropTypes.string,
   name: PropTypes.string,
-  price: PropTypes.oneOf(PropTypes.string, PropTypes.number),
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   image: PropTypes.node,
 };

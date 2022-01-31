@@ -7,7 +7,8 @@
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
       "@/containers/*": ["containers/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/generic/*": ["generic/*"]
     }
   }
 }

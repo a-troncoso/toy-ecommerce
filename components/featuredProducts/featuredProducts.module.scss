@@ -1,9 +1,11 @@
+@import "../../styles/colors.scss";
+
 .featuredProducts {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 48px;
-  background-color: #f9f9f9;
+  background-color: $light-gray-100;
 
   .featuredProductsTitle {
     margin: 40px 0;

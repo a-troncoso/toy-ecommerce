@@ -66,6 +66,6 @@ export default function ProductList() {
 }
 
 ProductListControl.propTypes = {
-  imageIcon: PropTypes.node,
+  imageIcon: PropTypes.object,
   onClick: PropTypes.func,
 };
