@@ -1,26 +1,27 @@
 import { combineReducers } from "redux";
 import * as types from "./productTypes";
 
-const initialProductListState = {
-  productList: "product List",
+const allProductsReducer = (state = [], { type, payload }) => {
+  switch (type) {
+    case types.FETCH_ALL_PRODUCTS:
+      return payload;
+    default:
+      return state;
+  }
 };
 
-const productListReducer = (
-  state = initialProductListState,
-  { type, payload }
-) => {
+const featuredProductsReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case types.FETCH_PRODUCTS:
-      return {
-        productList: payload.productList,
-      };
+    case types.GENERATE_FEATURED_PRODUCTS:
+      return payload;
     default:
       return state;
   }
 };
 
 const reducers = {
-  productList: productListReducer,
+  all: allProductsReducer,
+  featured: featuredProductsReducer,
 };
 
 export default combineReducers(reducers);

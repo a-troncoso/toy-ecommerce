@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import OutsideAlerter from "@/generic/OutsideAlerter";
@@ -8,7 +9,11 @@ import styles from "./cartPanel.module.scss";
 
 let cx = classNames.bind(styles);
 
-export default function CartPanel() {
+export default function CartPanel({
+  products = [],
+  subtotalAmount,
+  dispatchCost,
+}) {
   const [isCartDetailVisible, setIsCartDetailVisible] = useState(false);
 
   const cartPanelButtonActivator = cx({
@@ -36,9 +41,22 @@ export default function CartPanel() {
         onOutsideClick={() => setIsCartDetailVisible(false)}
       >
         <div className={floatingPanelClassName}>
-          <CartDetail />
+          <CartDetail products={products} />
         </div>
       </OutsideAlerter>
     </div>
   );
 }
+
+CartPanel.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      image: PropTypes.string,
+    })
+  ),
+  subtotalAmount: PropTypes.number,
+  dispatchCost: PropTypes.number,
+};

@@ -7,6 +7,8 @@
   cursor: pointer;
 
   .productImageWrapper {
+    width: 100px;
+    height: 100px;
     padding: 20px;
     background-color: $light-gray-100;
     border-radius: 16px;
@@ -68,6 +70,8 @@
 
   &.featured {
     .productImageWrapper {
+      width: 200px;
+      height: 200px;
       padding: 24px;
       background-color: #fff;
     }

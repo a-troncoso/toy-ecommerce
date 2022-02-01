@@ -1,42 +1,16 @@
+import PropTypes from "prop-types";
 import Product from "@/components/product/Product";
 import styles from "./featuredProducts.module.scss";
 
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    price: 100,
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    price: 100,
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    price: 100,
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    price: 100,
-    image: "https://via.placeholder.com/150",
-  },
-];
-
-export default function FeaturedProducts() {
+export default function FeaturedProducts({ products }) {
   return (
     <div className={styles.featuredProducts}>
       <h2 className={styles.featuredProductsTitle}>Productos Destacados</h2>
       <div className={styles.productList}>
         {products.map((p) => (
           <Product
-            key={p.id}
-            id={p.id}
+            key={p.tail}
+            id={p.tail}
             type="featured"
             name={p.name}
             price={p.price}
@@ -48,3 +22,14 @@ export default function FeaturedProducts() {
     </div>
   );
 }
+
+FeaturedProducts.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      tail: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      image: PropTypes.string,
+    })
+  ),
+};
