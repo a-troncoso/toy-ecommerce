@@ -1,0 +1,93 @@
+%containerIconFix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.input {
+  width: 100%;
+  position: relative;
+
+  &.disabled {
+    color: gray;
+    pointer-events: none;
+    i {
+      color: gray;
+    }
+  }
+
+  .prefixContainer {
+    @extend %containerIconFix;
+    left: 16px;
+    width: 16px;
+    justify-content: center;
+    // color: $neutral-60;
+  }
+
+  .suffixContainer {
+    @extend %containerIconFix;
+    right: 16px;
+    max-width: 20px;
+    // color: $neutral-30;
+
+    i {
+      // color: $neutral-30;
+    }
+  }
+
+  textarea {
+    display: flex;
+  }
+
+  &.hasPrefix {
+    input,
+    textarea {
+      // padding-left: nth(nth($spacers, 5), 2) + nth(nth($spacers, 5), 2) +
+      //   nth(nth($spacers, 2), 2);
+    }
+  }
+
+  &.hasSuffix {
+    input,
+    textarea {
+      // padding-right: nth(nth($spacers, 5), 2) + nth(nth($spacers, 5), 2) + 16px;
+    }
+  }
+
+  input {
+    height: 48px;
+    outline: none;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 0;
+    border-bottom: 2px solid gray;
+    background: transparent;
+    border-radius: 0;
+
+    // font-size: $font-size-base * 0.875;
+    // border: 1px solid $neutral-40;
+
+    &:focus {
+      // border-color: $info-40;
+    }
+
+    &:hover {
+      // border: 1px solid $neutral-50;
+    }
+
+    &:disabled {
+      border-color: gray;
+      background-color: white;
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      // color: $input-placeholder-color;
+    }
+  }
+}

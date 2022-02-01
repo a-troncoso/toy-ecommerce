@@ -1,0 +1,34 @@
+@mixin statusCreator($color) {
+  input,
+  textarea {
+    // border-color: $color;
+  }
+}
+
+.inputContainer {
+  margin-bottom: 48px;
+
+  &.error {
+    // @include statusCreator($danger-40);
+
+    input {
+      // color: $danger-40;
+    }
+  }
+
+  &.success {
+    // @include statusCreator($success-40);
+
+    input {
+      // color: $success-40;
+    }
+  }
+
+  &.disabled {
+    // @include statusCreator($disableColor);
+    pointer-events: none;
+    .inputLabel {
+      // color: $disableColor;
+    }
+  }
+}

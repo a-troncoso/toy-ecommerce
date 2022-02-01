@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Link from "next/link";
 import classNames from "classnames/bind";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import Product from "@/components/product/Product";
 import OutsideAlerter from "@/generic/OutsideAlerter";
+import CartDetail from "@/components/cartDetail/CartDetail";
 
 import styles from "./cartPanel.module.scss";
 
@@ -17,8 +16,8 @@ export default function CartPanel() {
     visible: !isCartDetailVisible,
   });
 
-  const cartDetailClassName = cx({
-    cartDetail: true,
+  const floatingPanelClassName = cx({
+    floatingPanel: true,
     visible: isCartDetailVisible,
   });
 
@@ -36,20 +35,8 @@ export default function CartPanel() {
         isActive={isCartDetailVisible}
         onOutsideClick={() => setIsCartDetailVisible(false)}
       >
-        <div className={cartDetailClassName}>
-          <div className={styles.productList}>
-            <div className={styles.productWrapper}>
-              <Product id="1" name="product 1" price="300" type="cart" />
-            </div>
-            <div className={styles.productWrapper}>
-              <Product id="1" name="product 2" price="300" type="cart" />
-            </div>
-          </div>
-          <div className={styles.cartDetailOptions}>
-            <Link href="/checkout" passHref>
-              <button className={styles.cartDetailOption}>Comprar</button>
-            </Link>
-          </div>
+        <div className={floatingPanelClassName}>
+          <CartDetail />
         </div>
       </OutsideAlerter>
     </div>

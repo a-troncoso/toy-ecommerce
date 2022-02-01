@@ -1,0 +1,11 @@
+.billingDetail {
+  .billingDetailTitle {
+    margin-bottom: 48px;
+  }
+
+  .inputGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}

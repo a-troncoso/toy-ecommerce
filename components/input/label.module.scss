@@ -1,0 +1,10 @@
+.inputLabel {
+  margin-bottom: 4px;
+  // color: red;
+  // font-weight: bold;
+  font-size: 14px;
+
+  &.disabled {
+    color: gray;
+  }
+}
