@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import MainHeader from "@/components/mainHeader/MainHeader";
 import BillingDetail from "@/components/billingDetail/BillingDetail";
-import CartDetail from "@/components/CartDetail/CartDetail";
+import CartDetail from "@/components/cartDetail/CartDetail";
 import Payment from "@/components/payment/Payment";
 
 import styles from "./checkoutContainer.module.scss";

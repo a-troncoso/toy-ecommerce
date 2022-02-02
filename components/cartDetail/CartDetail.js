@@ -10,7 +10,6 @@ export default function CartDetail({
   products = [],
   subtotalAmount,
   dispatchCost,
-  onRemoveProduct,
 }) {
   return (
     <div className={styles.cartDetail}>

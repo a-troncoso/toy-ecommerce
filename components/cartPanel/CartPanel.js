@@ -16,7 +16,7 @@ export default function CartPanel({
 }) {
   const [isCartDetailVisible, setIsCartDetailVisible] = useState(false);
 
-  const cartPanelButtonActivator = cx({
+  const buttonActivatorClassName = cx({
     cartPanelButtonActivator: true,
     visible: !isCartDetailVisible,
   });
@@ -30,7 +30,7 @@ export default function CartPanel({
     <div className={styles.cartPanel}>
       {products.length > 0 && (
         <button
-          className={cartPanelButtonActivator}
+          className={buttonActivatorClassName}
           onClick={() => setIsCartDetailVisible(true)}
         >
           <AiOutlineShoppingCart color="#fff" size={32} />
