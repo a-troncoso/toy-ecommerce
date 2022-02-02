@@ -20,20 +20,17 @@ export default function CartDetail({
       <div className={styles.cartDetailBox}>
         <div className={styles.productList}>
           {products.map((p) => (
-            <div key={p.id} className={styles.productWrapper}>
-              <Product id="1" name="product 1" price="300" type="cart" />
+            <div key={p.tail} className={styles.productWrapper}>
+              <Product
+                id={p.tail}
+                type="cart"
+                image={p.image}
+                name={p.name}
+                price={p.price}
+                quantityInCart={p.quantity}
+              />
             </div>
           ))}
-          {/* //{" "}
-          <div className={styles.productWrapper}>
-            // <Product id="1" name="product 1" price="300" type="cart" />
-            //{" "}
-          </div>
-          //{" "}
-          <div className={styles.productWrapper}>
-            // <Product id="1" name="product 2" price="300" type="cart" />
-            //{" "} */}
-          {/* </div> */}
         </div>
         <div className={styles.cartDetailOptions}>
           <p>

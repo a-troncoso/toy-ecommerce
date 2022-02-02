@@ -19,9 +19,22 @@ const featuredProductsReducer = (state = [], { type, payload }) => {
   }
 };
 
+const detailReducer = (
+  state = { image: "https://via.placeholder.com/500" },
+  { type, payload }
+) => {
+  switch (type) {
+    case types.FETCH_PRODUCT_DETAIL:
+      return payload;
+    default:
+      return state;
+  }
+};
+
 const reducers = {
   all: allProductsReducer,
   featured: featuredProductsReducer,
+  detail: detailReducer,
 };
 
 export default combineReducers(reducers);

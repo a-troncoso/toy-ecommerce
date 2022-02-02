@@ -7,7 +7,7 @@ import CartDetail from "@/components/cartDetail/CartDetail";
 
 import styles from "./cartPanel.module.scss";
 
-let cx = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 export default function CartPanel({
   products = [],
@@ -28,20 +28,26 @@ export default function CartPanel({
 
   return (
     <div className={styles.cartPanel}>
-      <button
-        className={cartPanelButtonActivator}
-        onClick={() => setIsCartDetailVisible(true)}
-      >
-        <AiOutlineShoppingCart color="#fff" size={32} />
-        <div className={styles.itemsInCart}>3</div>
-      </button>
+      {products.length > 0 && (
+        <button
+          className={cartPanelButtonActivator}
+          onClick={() => setIsCartDetailVisible(true)}
+        >
+          <AiOutlineShoppingCart color="#fff" size={32} />
+          <div className={styles.itemsInCart}>{products.length}</div>
+        </button>
+      )}
 
       <OutsideAlerter
         isActive={isCartDetailVisible}
         onOutsideClick={() => setIsCartDetailVisible(false)}
       >
         <div className={floatingPanelClassName}>
-          <CartDetail products={products} />
+          <CartDetail
+            products={products}
+            subtotalAmount={subtotalAmount}
+            dispatchCost={dispatchCost}
+          />
         </div>
       </OutsideAlerter>
     </div>
@@ -51,7 +57,7 @@ export default function CartPanel({
 CartPanel.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      tail: PropTypes.string,
       name: PropTypes.string,
       price: PropTypes.number,
       image: PropTypes.string,

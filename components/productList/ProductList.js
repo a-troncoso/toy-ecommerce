@@ -1,9 +1,16 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 import Product from "@/components/product/Product";
+import { useDispatch } from "react-redux";
+import {
+  addProductToCart,
+  removeProductToCart,
+} from "@/store/cart/cartActions";
+
 import searchIcon from "@/public/search.png";
 import nextIcon from "@/public/next.png";
 import backIcon from "@/public/back.png";
+
 import styles from "./productList.module.scss";
 
 function ProductListControl({ imageIcon, onClick }) {
@@ -15,6 +22,8 @@ function ProductListControl({ imageIcon, onClick }) {
 }
 
 export default function ProductList({ products = [] }) {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.productList}>
       <div className={styles.productListHeader}>
@@ -26,11 +35,13 @@ export default function ProductList({ products = [] }) {
         {products.map((p) => (
           <div key={p.tail}>
             <Product
+              className={styles.product}
               id={p.tail}
               name={p.name}
               price={p.price}
               image={p.image}
-              className={styles.product}
+              onAddProductToCart={() => dispatch(addProductToCart(p))}
+              onRemoveProductToCart={() => dispatch(removeProductToCart(p))}
             />
           </div>
         ))}

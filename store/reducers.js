@@ -3,6 +3,7 @@ import * as types from "./types";
 
 import productReducer from "./product/productReducer";
 import categoryReducer from "./category/categoryReducer";
+import cartReducer from "./cart/cartReducer";
 
 const counterReducer = (state = 0, { type }) => {
   switch (type) {
@@ -42,6 +43,7 @@ const reducers = {
   timer: timerReducer,
   product: productReducer,
   category: categoryReducer,
+  cart: cartReducer,
 };
 
 export default combineReducers(reducers);

@@ -1,22 +1,28 @@
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { toCurrencyFormat } from "@/utils/currency";
 import { BsCartPlus } from "react-icons/bs";
+import { toCurrencyFormat } from "@/utils/currency";
 import Counter from "@/components/counter/Counter";
+import {
+  addProductToCart,
+  removeProductToCart,
+} from "@/store/cart/cartActions";
 
 import styles from "./product.module.scss";
 
 // TODO: Refactor this component to use a generic component
 export default function Product({
-  id,
   className,
+  id,
   type = "default",
   name,
-  price,
   image = "https://via.placeholder.com/150",
+  price,
+  quantityInCart = 1,
 }) {
   if (type === "featured")
     return (
@@ -33,7 +39,7 @@ export default function Product({
               </span>
             </div>
           </div>
-          <CartOptions />
+          <CartOptions productId={id} />
         </div>
       </Link>
     );
@@ -48,7 +54,9 @@ export default function Product({
           <div className={styles.productInfo}>
             <span className={styles.productName}>{name}</span>
             <span className={styles.productPrice}>
-              <span className={styles.productQuantity}>3 x </span>
+              <span className={styles.productQuantity}>
+                {`${quantityInCart} x `}
+              </span>
               {toCurrencyFormat(price)}
             </span>
           </div>
@@ -66,29 +74,47 @@ export default function Product({
           <span className={styles.productName}>{name}</span>
           <span className={styles.productPrice}>{toCurrencyFormat(price)}</span>
         </div>
-        <CartOptions />
+        <CartOptions productId={id} />
       </div>
     </Link>
   );
 }
 
-function CartOptions() {
-  const [alreadyAddedToCart, setAlreadyAddedToCart] = useState(false);
+function CartOptions({ productId }) {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const productQuantityInCart =
+    cart.products.find((p) => p.tail === productId)?.quantity || 0;
+
+  const allProducts = useSelector((state) => state.product.all);
+  const product = allProducts.find((p) => p.tail === productId);
+
+  const [count, setCount] = useState(productQuantityInCart);
+
+  const handleChangeCounter = ({ quantityVariation, value }) => {
+    setCount(value);
+    if (quantityVariation === 1) dispatch(addProductToCart(product));
+    else if (quantityVariation === -1) dispatch(removeProductToCart(product));
+  };
 
   return (
     <div className={styles.cartOptions}>
-      {!alreadyAddedToCart && (
+      {count === 0 && (
         <button
           className={styles.addToCartButton}
           onClick={(e) => {
             e.stopPropagation();
-            setAlreadyAddedToCart(true);
+            console.log(product);
+            handleChangeCounter({ quantityVariation: 1, value: 1 });
+            addProductToCart(product);
           }}
         >
           <BsCartPlus size={28} color="#fff" />
         </button>
       )}
-      {alreadyAddedToCart && <Counter />}
+      {count > 0 && (
+        <Counter value={count} onChangeCounter={handleChangeCounter} />
+      )}
     </div>
   );
 }

@@ -1,22 +1,29 @@
-import { useState } from "react";
-
 import styles from "./counter.module.scss";
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
+const minCount = 0,
+  maxCount = 100;
+
+export default function Counter({ onChangeCounter = () => {}, value }) {
+  const handleChangeCounter = (quantityVariation) => {
+    const newCount = value + quantityVariation;
+    const isNewCountInRange = newCount >= minCount && newCount <= maxCount;
+
+    if (isNewCountInRange)
+      onChangeCounter({ quantityVariation, value: newCount });
+  };
 
   return (
     <div className={styles.counter} onClick={(e) => e.stopPropagation()}>
       <button
         className={styles.counterControl}
-        onClick={() => setCount((prev) => prev - 1)}
+        onClick={() => handleChangeCounter(-1)}
       >
         -
       </button>
-      <input type="number" value={count} onChange={() => {}} />
+      <input type="number" value={value} readOnly />
       <button
         className={styles.counterControl}
-        onClick={() => setCount((prev) => prev + 1)}
+        onClick={() => handleChangeCounter(1)}
       >
         +
       </button>

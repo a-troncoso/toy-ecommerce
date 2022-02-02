@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "lorem-ipsum": "^2.0.4",
     "next": "latest",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",

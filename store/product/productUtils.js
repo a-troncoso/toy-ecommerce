@@ -1,3 +1,4 @@
+import { loremIpsum } from "lorem-ipsum";
 import { getRandomInt } from "@/utils/number";
 
 export const processProducts = (productList) =>
@@ -6,6 +7,10 @@ export const processProducts = (productList) =>
 export const processProduct = (product) => ({
   ...product,
   price: getRandomInt(1000, 100000, { multiplier: 10 }),
+  description: loremIpsum({
+    count: 1,
+    units: "paragraphs",
+  }),
 });
 
 export const genFeaturedProducts = (products) =>
