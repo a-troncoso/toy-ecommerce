@@ -42,7 +42,8 @@ export default function CartDetail({
                 Despacho: <span>{toCurrencyFormat(dispatchCost)}</span>
               </p>
               <p>
-                Total: <span>{toCurrencyFormat(3600)}</span>
+                Total:{" "}
+                <span>{toCurrencyFormat(subtotalAmount + dispatchCost)}</span>
               </p>
             </>
           )}

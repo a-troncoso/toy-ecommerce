@@ -1,0 +1,100 @@
+@import "../../styles/colors.scss";
+
+.inputContainer {
+  width: 100%;
+  margin-bottom: 32px;
+
+  &.disabled {
+    pointer-events: none;
+    .inputLabel,
+    .optionRow,
+    .currentElement {
+      border: 1px solid $light-gray-200;
+    }
+  }
+
+  .suffixContainer {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.bellowContainer {
+  position: relative;
+
+  .optionContainer {
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    max-height: 240px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    z-index: 9999;
+    max-height: 240px;
+    overflow-y: scroll;
+
+    .optionRow {
+      padding: 8px 16px;
+    }
+
+    .optionRow:hover {
+      background-color: $light-gray-100;
+      cursor: pointer;
+    }
+  }
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  // padding: 12px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  outline: none;
+
+  &.disabled {
+    color: $light-gray-100;
+  }
+}
+
+.input {
+  width: 100%;
+  position: relative;
+
+  &.disabled {
+    color: $light-gray-100;
+  }
+
+  .currentElement {
+    display: flex;
+    height: 48px;
+    width: 100%;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 0;
+    border-bottom: 2px solid gray;
+    background: transparent;
+    border-radius: 0;
+
+    .optionRow {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: inherit;
+      line-height: 31px;
+    }
+
+    .placeholder {
+      color: $light-gray-200;
+    }
+
+    &:disabled {
+      border-color: $light-gray-100;
+      background-color: white;
+    }
+  }
+}

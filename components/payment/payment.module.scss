@@ -9,6 +9,7 @@
     border-radius: 16px;
 
     .paymentBoxFooter {
+      margin-top: 32px;
       display: flex;
       justify-content: center;
       .buyButton {
@@ -26,6 +27,13 @@
         &:active {
           background-color: darken($primary-color, 10%);
         }
+      }
+    }
+
+    .paymentOption {
+      .paymentOptionDescription {
+        margin: 4px 0 4px 40px;
+        font-size: 12px;
       }
     }
   }

@@ -1,0 +1,90 @@
+@import "../../styles/colors.scss";
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  .radio {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    .outerCircle {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid $secondary-color;
+      transition: all 0.1s linear;
+    }
+
+    .innerCircle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: $secondary-color;
+      transition: all 0.1s linear;
+    }
+
+    + label {
+      font-size: 0.875rem;
+    }
+  }
+
+  .selectedRadio {
+    &:hover {
+      background-color: $light-gray-100;
+    }
+    &:active {
+      background-color: $light-gray-100;
+    }
+  }
+
+  .unselectedRadio {
+    .outerCircle {
+      border: 2px solid $light-gray-200;
+    }
+    .innerCircle {
+      width: 0;
+      height: 0;
+    }
+    &:hover {
+      background-color: $light-gray-100;
+    }
+    &:active {
+      background-color: $light-gray-100;
+    }
+  }
+
+  .disabledRadio {
+    cursor: normal;
+    user-select: none;
+    pointer-events: none;
+
+    .outerCircle {
+      border: 2px solid $light-gray-200;
+    }
+
+    .innerCircle {
+      background-color: $light-gray-200;
+    }
+
+    + label {
+      color: $light-gray-200;
+    }
+  }
+}
