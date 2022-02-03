@@ -1,5 +1,13 @@
-Run Development env via:
+# E-commerce project
 
-´´´
-npm run dev
-´´´
+Project built with Next.js and React.
+
+## Setup development environment:
+
+Install dependencies:
+
+`npm install (or yarn)`
+
+## Run local development:
+
+`npm run dev`
