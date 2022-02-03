@@ -11,6 +11,7 @@ import styles from "@/containers/product.module.scss";
 export default function ProductContainer({ id }) {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.product.detail);
+  const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
     if (id) dispatch(fetchProductDetailsAction(id));
@@ -30,9 +31,13 @@ export default function ProductContainer({ id }) {
           />
         </section>
       </main>
-      {/* <aside>
-        <CartPanel />
-      </aside> */}
+      <aside>
+        <CartPanel
+          products={cart.products}
+          subtotalAmount={cart.subtotalAmount}
+          dispatchCost={cart.dispatchCost}
+        />
+      </aside>
     </div>
   );
 }

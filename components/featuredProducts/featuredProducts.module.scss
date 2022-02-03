@@ -9,11 +9,14 @@
 
   .featuredProductsTitle {
     margin: 40px 0;
+    text-align: center;
     font-size: 40px;
   }
 
   .productList {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .product:not(:last-child) {

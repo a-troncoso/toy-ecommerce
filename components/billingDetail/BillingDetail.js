@@ -49,7 +49,7 @@ export default function BillingDetail({
     <div className={styles.billingDetail}>
       <h1 className={styles.billingDetailTitle}>Detalles de entrega</h1>
 
-      <form>
+      <form className={styles.billingForm}>
         <div className={styles.inputGroup}>
           <Input
             label="Nombre"

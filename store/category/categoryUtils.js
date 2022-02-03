@@ -2,7 +2,7 @@ const translationMap = {
   Figure: "Figuras",
   Card: "Cartas",
   Yarn: "Tejidos",
-  Band: "Bandas",
+  Band: "Pulseras",
 };
 
 export const processCategories = (categoryList) =>

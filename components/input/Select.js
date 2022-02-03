@@ -91,9 +91,9 @@ const InputSelect = ({
 
         <div className={inputStyles.suffixContainer}>
           {optionOpen ? (
-            <MdOutlineKeyboardArrowDown size={20} />
-          ) : (
             <MdOutlineKeyboardArrowUp size={20} />
+          ) : (
+            <MdOutlineKeyboardArrowDown size={20} />
           )}
         </div>
       </div>

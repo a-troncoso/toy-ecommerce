@@ -3,13 +3,19 @@
     margin-bottom: 48px;
   }
 
-  .inputGroup {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  .billingForm {
+    background: #fff;
+    padding: 32px;
+    border-radius: 16px;
 
-    &.addressBox {
-      grid-template-columns: 2fr 1fr;
+    .inputGroup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      &.addressBox {
+        grid-template-columns: 2fr 1fr;
+      }
     }
   }
 }

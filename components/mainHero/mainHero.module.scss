@@ -1,4 +1,12 @@
 .mainHero {
-  display: flex;
-  justify-content: center;
+  height: 600px;
+
+  .heroImage {
+    background-image: url("https://www.nintendo.com/etc.clientlibs/noa/clientlibs/clientlib-ncom/resources/images/page/amiibo/home/amiibo-hero.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
 }

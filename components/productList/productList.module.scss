@@ -1,14 +1,15 @@
 .productList {
   .productListWrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 320px);
+    justify-content: center;
     grid-gap: 32px;
   }
 
   .productListHeader {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 32px;
+    margin: 0 32px 32px;
 
     .searchWrapper {
       display: flex;
