@@ -2,9 +2,10 @@ const path = require("path");
 
 module.exports = {
   images: {
-    domains: ["raw.githubusercontent.com", "via.placeholder.com"],
+    domains: [
+      "raw.githubusercontent.com",
+      "via.placeholder.com",
+      "c.tenor.com",
+    ],
   },
-  // sassOptions: {
-  //   includePaths: [path.join(__dirname, "styles")],
-  // },
 };
