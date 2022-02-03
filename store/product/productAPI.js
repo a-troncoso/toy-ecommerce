@@ -1,6 +1,8 @@
+const AMIIBO_API_URL = process.env.NEXT_PUBLIC_AMIIBO_API;
+
 export async function fetchAllProducts() {
   try {
-    const response = await fetch("https://www.amiiboapi.com/api/amiibo/");
+    const response = await fetch(`${AMIIBO_API_URL}/amiibo/`);
     const result = await response.json();
     return result;
   } catch (e) {
@@ -10,9 +12,7 @@ export async function fetchAllProducts() {
 
 export async function fetchProductDetail(id) {
   try {
-    const response = await fetch(
-      `https://www.amiiboapi.com/api/amiibo?id=${id}`
-    );
+    const response = await fetch(`${AMIIBO_API_URL}/amiibo?id=${id}`);
     const result = await response.json();
     return result;
   } catch (e) {

@@ -1,6 +1,8 @@
+const DIGITAL_GOV_API_URL = process.env.NEXT_PUBLIC_DIGITAL_GOV_API;
+
 export const fetchRegions = async () => {
   try {
-    const response = await fetch("https://apis.digital.gob.cl/dpa/regiones");
+    const response = await fetch(`${DIGITAL_GOV_API_URL}/regiones`);
     const result = await response.json();
     return result;
   } catch (e) {
@@ -11,7 +13,7 @@ export const fetchRegions = async () => {
 export const fetchProvinces = async (regionCode) => {
   try {
     const response = await fetch(
-      `https://apis.digital.gob.cl/dpa/regiones/${regionCode}/provincias`
+      `${DIGITAL_GOV_API_URL}/regiones/${regionCode}/provincias`
     );
     const result = await response.json();
     return result;
@@ -23,7 +25,7 @@ export const fetchProvinces = async (regionCode) => {
 export const fetchCommunes = async (regionCode, provinceCode) => {
   try {
     const response = await fetch(
-      `https://apis.digital.gob.cl/dpa/regiones/${regionCode}/provincias/${provinceCode}/comunas`
+      `${DIGITAL_GOV_API_URL}/regiones/${regionCode}/provincias/${provinceCode}/comunas`
     );
     const result = await response.json();
     return result;
