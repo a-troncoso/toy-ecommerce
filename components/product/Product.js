@@ -104,7 +104,6 @@ function CartOptions({ productId }) {
           className={styles.addToCartButton}
           onClick={(e) => {
             e.stopPropagation();
-            console.log(product);
             handleChangeCounter({ quantityVariation: 1, value: 1 });
             addProductToCart(product);
           }}

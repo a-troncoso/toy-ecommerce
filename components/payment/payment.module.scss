@@ -27,6 +27,11 @@
         &:active {
           background-color: darken($primary-color, 10%);
         }
+        &:disabled {
+          background-color: $light-gray-100;
+          color: $light-gray-200;
+          cursor: not-allowed;
+        }
       }
     }
 

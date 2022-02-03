@@ -61,7 +61,7 @@ export default function ProductList({ products = [], category = "all" }) {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [category]);
+  }, [category, searchValue]);
 
   const handleClickControl = (pageVariation) => {
     setCurrentPage((prevPage) => {

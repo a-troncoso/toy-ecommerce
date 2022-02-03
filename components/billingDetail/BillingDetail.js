@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import Input from "@/components/input/Input";
 import Select from "@/components/input/Select";
@@ -11,7 +12,13 @@ const addressBoxClassName = cx({
   addressBox: true,
 });
 
-export default function BillingDetail() {
+export default function BillingDetail({
+  regions = [],
+  provinces = [],
+  communes = [],
+  onChangeTerritorialInfo = () => {},
+  onChangeFormValidation = () => {},
+}) {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -26,12 +33,17 @@ export default function BillingDetail() {
   });
 
   const handleChangeFormControl = (value, controlName) => {
-    console.log({ value, controlName });
     setForm((prev) => ({
       ...prev,
       [controlName]: value,
     }));
   };
+
+  useEffect(() => {
+    const formValues = Object.values(form);
+    const isFormValid = formValues.every((value) => value !== "");
+    onChangeFormValidation(isFormValid);
+  }, [form]);
 
   return (
     <div className={styles.billingDetail}>
@@ -63,25 +75,30 @@ export default function BillingDetail() {
         />
         <Select
           label="Región"
-          options={[
-            { text: "op1", value: "1" },
-            { text: "op2", value: "2" },
-            { text: "op3", value: "3" },
-          ]}
+          options={regions}
           value={form.region}
-          onSelect={(value) => handleChangeFormControl(value, "region")}
+          onSelect={(value) => {
+            handleChangeFormControl(value, "region");
+            onChangeTerritorialInfo({ regionCode: value }, "region");
+          }}
         />
         <div className={styles.inputGroup}>
           <Select
-            label="Comuna"
+            label="Provincia"
             value={form.province}
-            options={[{ text: "op1", value: "1" }]}
-            onSelect={(value) => handleChangeFormControl(value, "province")}
+            options={provinces}
+            onSelect={(value) => {
+              handleChangeFormControl(value, "province");
+              onChangeTerritorialInfo(
+                { provinceCode: value, regionCode: form.region },
+                "province"
+              );
+            }}
           />
           <Select
-            label="Ciudad"
+            label="Comuna"
             value={form.commune}
-            options={[{ text: "op1", value: "1" }]}
+            options={communes}
             onSelect={(value) => handleChangeFormControl(value, "commune")}
           />
         </div>
@@ -109,3 +126,9 @@ export default function BillingDetail() {
     </div>
   );
 }
+
+BillingDetail.propTypes = {
+  regions: PropTypes.arrayOf(PropTypes.shape({})),
+  provinces: PropTypes.arrayOf(PropTypes.shape({})),
+  communes: PropTypes.arrayOf(PropTypes.shape({})),
+};

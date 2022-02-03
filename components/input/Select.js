@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { Scrollbars } from "react-custom-scrollbars";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
@@ -14,7 +13,6 @@ const InputSelect = ({
   label,
   options = [],
   value = "",
-  placeholder = "",
   disabled = false,
   onSelect = () => {},
 }) => {
@@ -45,7 +43,6 @@ const InputSelect = ({
         key === "selected"
           ? null
           : () => {
-              console.log("el.value", el.value, key);
               onSelect(el.value);
             };
       const isDisabled = el.disabled && el.disabled ? inputStyles.disabled : "";
@@ -117,7 +114,6 @@ const InputSelect = ({
 InputSelect.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
-  assistText: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -127,7 +123,6 @@ InputSelect.propTypes = {
       disabled: PropTypes.bool,
     })
   ),
-  placeholder: PropTypes.string,
   onSelect: PropTypes.func,
 };
 

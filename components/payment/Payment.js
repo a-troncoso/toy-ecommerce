@@ -21,7 +21,7 @@ const paymentOptions = [
     description: [
       "Debes realizar la tranferencia a:",
       "Banco: Banco de Chile",
-      "Cuenta: Cuenta Corriente",
+      "Tipo de cuenta: Cuenta Corriente",
       "Número: 123456789",
       "Rut: 123456789-2",
       "Email: jorge.bustos@amiibo.com",
@@ -34,7 +34,7 @@ const paymentOptions = [
   },
 ];
 
-export default function Payment() {
+export default function Payment({ isBillingDetailValid = false }) {
   const [selectedOption, setSelectedOption] = useState();
 
   const handleSelectOption = (id) => {
@@ -58,7 +58,12 @@ export default function Payment() {
           ))}
         </ul>
         <div className={styles.paymentBoxFooter}>
-          <button className={styles.buyButton}>Ir a pagar</button>
+          <button
+            className={styles.buyButton}
+            disabled={!(isBillingDetailValid && selectedOption)}
+          >
+            Ir a pagar
+          </button>
         </div>
       </div>
     </div>
