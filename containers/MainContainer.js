@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MainHeader from "@/components/mainHeader/MainHeader";
 import MainHero from "@/components/mainHero/MainHero";
@@ -14,6 +14,7 @@ import styles from "./main.module.scss";
 
 export default function MainContainer() {
   const dispatch = useDispatch();
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const product = useSelector((state) => state.product);
   const category = useSelector((state) => state.category);
@@ -28,17 +29,24 @@ export default function MainContainer() {
     dispatch(updateSubtotalAmount(cart.products));
   }, [cart.products]);
 
+  const handleClickCategory = (category) => {
+    setSelectedCategory(category.type);
+  };
+
   return (
     <div>
       <main>
         <MainHeader />
         <MainHero />
         <section className={styles.productCategorySection}>
-          <ProductCategory categories={category.all} />
+          <ProductCategory
+            categories={category.all}
+            onClickCategory={handleClickCategory}
+          />
         </section>
         <FeaturedProducts products={product.featured} />
         <section className={styles.productListSection}>
-          <ProductList products={product.all} />
+          <ProductList products={product.all} category={selectedCategory} />
         </section>
       </main>
       <aside>

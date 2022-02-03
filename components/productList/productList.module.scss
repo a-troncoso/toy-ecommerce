@@ -10,14 +10,45 @@
     justify-content: flex-end;
     margin-bottom: 32px;
 
+    .searchWrapper {
+      display: flex;
+      align-items: center;
+      margin-right: 32px;
+      justify-content: flex-end;
+
+      .searchInputWrapper {
+        width: 0;
+        visibility: hidden;
+        transition: width 200ms linear;
+
+        &.visible {
+          width: 100%;
+          visibility: visible;
+        }
+
+        div {
+          margin: 0;
+        }
+      }
+    }
+
+    @keyframes main {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
     .productListControl {
       background-color: #fff;
       border: 1px solid #333;
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: 1px solid #d0d0d0;
-      padding: 12px;
+      padding: 16px;
       cursor: pointer;
 
       &:not(:last-child) {

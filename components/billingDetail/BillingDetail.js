@@ -18,8 +18,8 @@ export default function BillingDetail() {
     email: "",
     phone: "",
     region: "",
+    province: "",
     commune: "",
-    city: "",
     street: "",
     addressNumber: "",
     comments: "",
@@ -74,15 +74,15 @@ export default function BillingDetail() {
         <div className={styles.inputGroup}>
           <Select
             label="Comuna"
-            value={form.commune}
+            value={form.province}
             options={[{ text: "op1", value: "1" }]}
-            onSelect={(value) => handleChangeFormControl(value, "commune")}
+            onSelect={(value) => handleChangeFormControl(value, "province")}
           />
           <Select
             label="Ciudad"
-            value={form.city}
+            value={form.commune}
             options={[{ text: "op1", value: "1" }]}
-            onSelect={(value) => handleChangeFormControl(value, "city")}
+            onSelect={(value) => handleChangeFormControl(value, "commune")}
           />
         </div>
         <div className={addressBoxClassName}>

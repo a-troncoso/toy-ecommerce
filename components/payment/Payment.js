@@ -29,7 +29,7 @@ const paymentOptions = [
   },
   {
     id: "4",
-    name: "Efectivo a Domicilio",
+    name: "Pago al recibir",
     description: "Recuerda tener sencillo al momento de recibir tus productos.",
   },
 ];
