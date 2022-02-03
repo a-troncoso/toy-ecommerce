@@ -37,7 +37,7 @@ export default function CheckoutContainer() {
 
   return (
     <div>
-      <main className={styles.main}>
+      <main className={styles.checkoutContainer}>
         <MainHeader />
         <section className={styles.checkoutDetailSection}>
           <div className={styles.checkout}>

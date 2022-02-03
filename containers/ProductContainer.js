@@ -5,6 +5,7 @@ import MainHeader from "@/components/mainHeader/MainHeader";
 import CartPanel from "@/components/cartPanel/CartPanel";
 import ProductDetail from "@/components/productDetail/ProductDetail";
 import { fetchProductDetailsAction } from "@/store/product/productActions";
+import { updateSubtotalAmount } from "@/store/cart/cartActions";
 
 import styles from "@/containers/product.module.scss";
 
@@ -16,6 +17,10 @@ export default function ProductContainer({ id }) {
   useEffect(() => {
     if (id) dispatch(fetchProductDetailsAction(id));
   }, [id]);
+
+  useEffect(() => {
+    dispatch(updateSubtotalAmount(cart.products));
+  }, [cart.products]);
 
   return (
     <div>

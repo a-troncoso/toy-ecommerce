@@ -23,6 +23,7 @@ export default function Product({
   image = "https://via.placeholder.com/150",
   price,
   quantityInCart = 1,
+  withCartOptions = true,
 }) {
   if (type === "featured")
     return (
@@ -74,7 +75,7 @@ export default function Product({
           <span className={styles.productName}>{name}</span>
           <span className={styles.productPrice}>{toCurrencyFormat(price)}</span>
         </div>
-        <CartOptions productId={id} />
+        {withCartOptions && <CartOptions productId={id} />}
       </div>
     </Link>
   );

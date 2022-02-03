@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import Input from "@/components/input/Input";
 import Select from "@/components/input/Select";
+import { saveBillingDetail } from "@/store/billing/billingActions";
 
 import styles from "./billingDetail.module.scss";
 
@@ -19,6 +21,8 @@ export default function BillingDetail({
   onChangeTerritorialInfo = () => {},
   onChangeFormValidation = () => {},
 }) {
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -43,6 +47,7 @@ export default function BillingDetail({
     const formValues = Object.values(form);
     const isFormValid = formValues.every((value) => value !== "");
     onChangeFormValidation(isFormValid);
+    if (isFormValid) dispatch(saveBillingDetail(form));
   }, [form]);
 
   return (

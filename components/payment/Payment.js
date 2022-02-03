@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./payment.module.scss";
 import Radio from "@/components/input/Radio";
+import Link from "next/link";
 
 const paymentOptions = [
   {
@@ -58,12 +59,14 @@ export default function Payment({ isBillingDetailValid = false }) {
           ))}
         </ul>
         <div className={styles.paymentBoxFooter}>
-          <button
-            className={styles.buyButton}
-            disabled={!(isBillingDetailValid && selectedOption)}
-          >
-            Ir a pagar
-          </button>
+          <Link href="/order" passHref>
+            <button
+              className={styles.buyButton}
+              disabled={!(isBillingDetailValid && selectedOption)}
+            >
+              Ir a pagar
+            </button>
+          </Link>
         </div>
       </div>
     </div>
